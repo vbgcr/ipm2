@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html>
+  <head>
+
+    <title>iGo</title>
+    <link rel = "stylesheet" href = "style.css">
+    <script src = "time.js"></script>
+    <script src = "switch.js"></script>
+  </head>
+  <body onload = "getTime() ; isDoNotDisturbOn() ; checkGroups()">
+  <div id = "device">
+    <div id = "buttons">
+      <svg id = "button-div">
+        <rect id = "button1" width = "10" height = "25" style ="fill:'black'" onclick = "relock()" style = "cursor: pointer">
+      </svg>
+
+      <svg id = "button-div2">
+        <rect id = "button2" width = "30" height = "10" style ="fill: black" style = "cursor: pointer" onclick="goToHomeScreen()">
+      </svg>
+
+      <svg id = "button-div3">
+        <rect id = "button3" width = "25" height = "6" style = "fill: black" style = "cursor: pointer" onclick="goToIMeet()">
+      </svg>
+
+    </div>
+    <div id = "screen">
+
+      <div id = "screentop">
+        <p id = "time"></p>
+        <table id = "screentopIcons" width = "15%">
+          <tr>
+            <td class = "smallIcon" id = "smallPin" width = "50%" allign = "center">
+              <img src = "images/pin.png" width="13">
+            </td>
+            <td class = "smallIcon" id = "smallDoNotDisturb" width = "50%" allign = "center">
+              <img src = "images/DoNotDisturb.png" width="13">
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div id = "mainscreen">
+        <div>
+          <div id = "secondaryScreen">
+            <table id = "groupsTable">
+              <tr class = "group" id = "group1" onclick="goToYourGroup0()">
+                <td class = "groupPhoto" id = "groupPhoto1">
+                    <img class = "photo" src = "images/pachecoAzul.png">
+                </td>
+                <td class = "groupName" id = "groupName1">
+                    <span>Pacheco's Group</span>
+                </td>
+              </tr>
+              <tr class = "group" id = "group2" onclick="goToYourGroup1()">
+                <td class = "groupPhoto" id = "groupPhoto2">
+                    <img class = "photo" src = "images/zeAzul.png">
+                </td>
+                <td class = "groupName" id = "groupName2">
+                    <span>Your Group 1</span>
+                </td>
+              </tr>
+              <tr class = "group" id = "group3" onclick="goToYourGroup2()">
+                <td class = "groupPhoto" id = "groupPhoto3">
+                    <img class = "photo" src = "images/zeAzul.png">
+                </td>
+                <td class = "groupName" id = "groupName3">
+                    <span>Your Group 2</span>
+                </td>
+              </tr>
+              <tr class = "group" id = "group4" onclick="goToYourGroup3()">
+                <td class = "groupPhoto" id = "groupPhoto4">
+                    <img class = "photo" src = "images/zeAzul.png">
+                </td>
+                <td class = "groupName" id = "groupName4">
+                    <span>Your Group 3</span>
+                </td>
+              </tr>
+              <tr class = "group" id = "group5" onclick="goToYourGroup4()">
+                <td class = "groupPhoto" id = "groupPhoto5">
+                    <img class = "photo" src = "images/zeAzul.png">
+                </td>
+                <td class = "groupName" id = "groupName5">
+                    <span>Your Group 4</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <img id = "addGroupIcon" src = "images/plus.png" onclick="addNewGroup()">
+      </div>
+    </div>
+</body>
+</html>
