@@ -1,5 +1,6 @@
 filtersHidden = false;
 
+
 function goback(){
   window.history.back()
 }
@@ -420,39 +421,72 @@ function goToBigMap(){
   document.location.href = "bigMap.html";
 }
 
+function startGroupCounter(){
+  sessionStorage.setItem("groupCounter", 1);
+}
+
+function addElement(parentId, elementTag, elementId, html) {
+  // Adds an element to the document
+  var p = document.getElementById(parentId);
+  var newElement = document.createElement(elementTag);
+  newElement.setAttribute('id', elementId);
+  newElement.innerHTML = html;
+  p.appendChild(newElement);
+}
+
 function addNewGroup(){
-  if(sessionStorage.getItem("groupCounter") == 3){
-    document.getElementById("group2").style.visibility = "visible";
-    document.getElementById("group3").style.visibility = "visible";
+  if(sessionStorage.getItem("groupCounter") == 1){
+    var html = '<tr class = "group" id = "group2" onclick = "goToYourGroup1()"">' + 
+        '<td class = "groupPhoto" id = "groupPhoto2">' + 
+          '<img class = "photo" src = "images/zeAzul.png">' + 
+        '</td>' + 
+        '<td class = "groupName" id = "groupName2">' + 
+          '<span>Your Group 1</span>'
+        '</td>' + 
+      '</tr>';
+
+    addElement('groupsTable', 'tr', 'group2', html);
+    sessionStorage.setItem("groupCounter", 2);
+  }
+  else if(sessionStorage.getItem("groupCounter") == 2){
+    var html = '<tr class = "group" id = "group3" onclick="goToYourGroup2()">' +
+      '<td class = "groupPhoto" id = "groupPhoto3">' +
+        '<img class = "photo" src = "images/zeAzul.png">' +
+      '</td>' +
+      '<td class = "groupName" id = "groupName3">' +
+        '<span>Your Group 2</span>' +
+      '</td>' +
+    '</tr>';
+    addElement('groupsTable', 'tr', 'group3', html);
+    sessionStorage.setItem("groupCounter", 3);
+  }
+  else if(sessionStorage.getItem("groupCounter") == 3){
+    var html = '<tr class = "group" id = "group4" onclick="goToYourGroup3()">' +
+        '<td class = "groupPhoto" id = "groupPhoto4">' +
+            '<img class = "photo" src = "images/zeAzul.png">' +
+        '</td>' +
+        '<td class = "groupName" id = "groupName4">' +
+            '<span>Your Group 3</span>' +
+        '</td>' +
+      '</tr>';
+    addElement('groupsTable', 'tr', 'group4', html);
     sessionStorage.setItem("groupCounter", 4);
   }
-
   else if(sessionStorage.getItem("groupCounter") == 4){
-    document.getElementById("group2").style.visibility = "visible";
-    document.getElementById("group3").style.visibility = "visible";
-    document.getElementById("group4").style.visibility = "visible";
+    var html = '<tr class = "group" id = "group5" onclick="goToYourGroup4()">' +
+        '<td class = "groupPhoto" id = "groupPhoto5">' +
+            '<img class = "photo" src = "images/zeAzul.png">' +
+        '</td>' +
+        '<td class = "groupName" id = "groupName5">' +
+            '<span>Your Group 4</span>' +
+        '</td>' +
+      '</tr>';
+    addElement('groupsTable', 'tr', 'group5', html);
     sessionStorage.setItem("groupCounter", 5);
-  }
-
-  else if(sessionStorage.getItem("groupCounter") == 5){
-    document.getElementById("group2").style.visibility = "visible";
-    document.getElementById("group3").style.visibility = "visible";
-    document.getElementById("group4").style.visibility = "visible";
-    document.getElementById("group5").style.visibility = "visible";
-    sessionStorage.setItem("groupCounter", 6);
-  }
-
-  else if(sessionStorage.getItem("groupCounter") == 6){
-    sessionStorage.setItem("groupCounter", 7)
-  }
-
-  else{
-    sessionStorage.setItem("groupCounter", 3);
-    document.getElementById("group2").style.visibility = "visible";
   }
 }
 
-function checkGroups(){
+/*function checkGroups(){
   if(sessionStorage.getItem("groupCounter") == 3){
     document.getElementById("group2").style.visibility = "visible";
   }
@@ -481,9 +515,9 @@ function checkGroups(){
     document.getElementById("group4").style.visibility = "visible";
     document.getElementById("group5").style.visibility = "visible";
   }
-}
+}*/
 
-function checkGroupNumber(){
+/*function checkGroupNumber(){
   if(sessionStorage.getItem("groupCounter") == 3){
     document.getElementById("GroupsTwo").style.visibility = "visible";
   }
@@ -507,7 +541,7 @@ function checkGroupNumber(){
   else{
     document.getElementById("GroupsOne").style.visibility = "visible";
   }
-}
+}*/
 
 function goToYourGroup0(){
   document.location.href = "pachecoGroup.html"
